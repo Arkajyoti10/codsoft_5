@@ -1,0 +1,108 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Movie Ticket Booking";
+    cout << "Movie Listings";
+    cout << "1- oppenhiemer 2-barbie 3-mission impossible 4-blue beetle" << endl;
+    int ch;
+    
+    cout << "Enter choice";
+    cin >> ch;
+    
+    int cost;
+    
+    switch(ch)
+    {
+        case 1: cout << " Oppenhiemer" << endl;
+                cost=250;
+                break;
+        case 2: cout << "Barbie"<< endl;
+                cost=200;
+                break;
+        case 3: cout << " /t Mission impossible /t";
+                cost=300;
+                break;
+        case 4: cout << " /t Blue beetle /t";
+                cost=150;
+                break;
+        default: cout << " /t movie not listed /t";
+                break;        
+                
+    }
+    
+    int seat[5][5];
+    int r,m;
+    
+    cout << "seats" << endl;
+    for(int i=0;i<5;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+          cout << " " << seat[i][j];  
+        }
+        cout << endl;
+    }
+    
+    while(1)
+    {
+       cout <<"to select seat enter row and column number";
+       cin >> r >> m;
+       
+       if(seat[r][m] == 0)
+       {
+           seat[r][m]=1;
+           break;
+       }
+       else
+       {
+           cout << "Seat filled try again";
+       }
+       
+    }
+    
+    int totalcost;
+    
+    cout << "Your seat has been selected" << endl;
+    
+    char book,extra;
+    cout << "Do you want to book your seat Y-yes N-no" << endl;
+    cin >> book;
+    if(book=='Y')
+    {
+      cout << "Your seat has been booked" << endl;  
+     for(int i=0;i<5;i++)
+     {
+        for(int j=0;j<5;j++)
+        {
+          cout << " " << seat[i][j];  
+        }
+        cout << endl;
+     }
+     
+     cout << "Do you want popcorn and drinks y-yes n-no" << endl;
+     cin >> extra;
+     
+     if(extra=='y')
+     {
+         totalcost=cost+500;
+     }
+     else
+     {
+         totalcost=cost;
+     
+     }
+     
+     cout << "Total bill= " << totalcost << endl;
+     
+     cout << "Thank you for booking with us we hope to see you soon";
+     
+    }
+    else
+    {
+        cout << "Sorry for not being able to provide your needs please try again next time";
+    }
+    return 0;
+}
